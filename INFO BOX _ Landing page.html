@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INFO BOX | Manutenção de computadores e eletrônicos</title>
+<meta name="description" content="Manutenção de computadores, formatação, backup, montagem e conserto de joystick, fone e console. Buscamos na sua casa e atendemos remotamente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050505; --card:#0d1210; --line:#ffffff1f; --text:#ffffff; --muted:#a9b8b0;
+  --green:#2bf08a; --green-d:#14c46a; --wa:#25d366;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*,*:before,*:after{box-sizing:inherit;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:84px 0}
+h2{font-size:clamp(30px,5vw,44px);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+h2 em{font-style:normal;color:var(--green)}
+.sub{color:var(--muted);margin-top:12px;max-width:560px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#050505dd;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:700;letter-spacing:.03em}
+.brand span{font-weight:300}
+nav{display:flex;gap:28px;align-items:center;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--green)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:60px;padding:14px 28px;font-weight:600;font-size:16px;border:2px solid transparent;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-green{background:var(--green);color:#04130b;box-shadow:0 0 28px #2bf08a55}
+.btn-line{border-color:var(--green);color:var(--green)}
+.btn-sm{padding:10px 20px;font-size:14px}
+
+/* hero */
+.hero{position:relative;padding:90px 0 80px;overflow:hidden;text-align:center}
+.hero:before{content:"";position:absolute;left:50%;top:-260px;width:900px;height:900px;margin-left:-450px;border-radius:50%;background:radial-gradient(circle,#19e57a4d,transparent 65%);pointer-events:none}
+.hero .wrap{position:relative}
+.logo-big{width:120px;height:120px;margin:0 auto 22px;filter:drop-shadow(0 0 30px #2bf08a77)}
+.pill{display:inline-block;border:1px solid var(--green);color:var(--green);border-radius:60px;padding:6px 18px;font-size:14px;font-weight:500;margin-bottom:22px}
+h1{font-size:clamp(40px,8vw,82px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+h1 em{font-style:normal;color:var(--green);text-shadow:0 0 36px #2bf08a88}
+.hero p{color:var(--muted);font-size:clamp(16px,2.4vw,20px);max-width:600px;margin:22px auto 34px}
+.hero .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* serviços */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:44px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--green);transform:translateY(-4px)}
+.ico{width:54px;height:54px;border-radius:16px;background:#2bf08a1a;display:grid;place-items:center;font-size:26px;margin-bottom:16px}
+.card h3{font-size:19px;font-weight:600;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15px}
+
+/* destaque casa/remoto */
+.band{background:linear-gradient(135deg,#0a2a1a,#071a10);border-block:1px solid #2bf08a33}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px;align-items:center}
+.checks{list-style:none;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.checks i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--green);color:#04130b;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:14px;margin-top:2px}
+
+/* promo */
+.promo{border:2px solid var(--green);border-radius:30px;padding:46px 26px;text-align:center;background:radial-gradient(circle at 50% 0,#2bf08a24,transparent 70%);box-shadow:0 0 60px #2bf08a22}
+.promo small{color:var(--green);font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.price{font-size:clamp(70px,16vw,140px);font-weight:800;line-height:1;letter-spacing:-.03em;text-shadow:0 0 50px #2bf08a88;margin:10px 0 6px}
+.price span{font-size:.4em;margin-right:8px}
+.promo p{color:var(--muted);margin-bottom:26px}
+
+/* passos */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px}
+.step{position:relative;padding:28px;border-left:2px solid var(--green);background:var(--card);border-radius:0 18px 18px 0}
+.step:before{counter-increment:s;content:"0" counter(s);font-size:34px;font-weight:800;color:var(--green)}
+.step h3{font-size:18px;margin:4px 0}.step p{color:var(--muted);font-size:15px}
+
+/* formulário */
+.form{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;display:grid;gap:14px}
+label{font-size:14px;color:var(--muted);display:grid;gap:6px}
+input,select,textarea{background:#000;border:1px solid var(--line);border-radius:14px;color:var(--text);padding:14px 16px;font:inherit;font-size:16px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:transparent}
+textarea{resize:vertical;min-height:90px}
+.contact h2{margin-bottom:10px}
+.info{margin-top:26px;display:grid;gap:8px;color:var(--muted)}
+.info b{color:var(--text)}
+
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* botão flutuante */
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:62px;height:62px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 28px #25d36666;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #25d36699}70%{box-shadow:0 0 0 18px #25d36600}100%{box-shadow:0 0 0 0 #25d36600}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:720px){nav a:not(.btn){display:none}section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.fab{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="la" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5dffa3"/><stop offset="1" stop-color="#14c46a"/></linearGradient>
+    <linearGradient id="lb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f9a55"/><stop offset="1" stop-color="#075c36"/></linearGradient>
+    <symbol id="logo" viewBox="0 0 64 64" fill="none">
+      <path d="M6 18L32 32V60L6 46Z" fill="url(#la)"/><path d="M58 18L32 32V60L58 46Z" fill="url(#lb)"/>
+      <path d="M32 4L58 18L32 32L6 18Z" fill="#fff"/><path d="M32 11L44 18L32 25L20 18Z" fill="#050505"/>
+      <g stroke="#050505" stroke-width="2" stroke-linecap="round"><path d="M32 4v4M32 28v4M13 14l3 2M48 20l3 2M51 14l-3 2M16 20l-3 2"/></g>
+    </symbol>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.2 13.8c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.5.1.6-.1l.9-1.1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#topo"><svg width="38" height="38"><use href="#logo"/></svg>INFO<span>BOX</span></a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#promo">Promoção</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-green btn-sm" data-wa="Olá! Vim pelo site da INFO BOX e gostaria de um orçamento.">Orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <svg class="logo-big"><use href="#logo"/></svg>
+      <span class="pill">Buscamos e entregamos na sua casa</span>
+      <h1>Seu computador <em>como novo</em></h1>
+      <p>Manutenção de computadores, formatação, montagem e conserto de eletrônicos em geral. Atendimento presencial ou remoto.</p>
+      <div class="actions">
+        <a class="btn btn-green" data-wa="Olá! Vim pelo site da INFO BOX e gostaria de um orçamento."><svg width="22" height="22"><use href="#wa"/></svg>Pedir orçamento</a>
+        <a class="btn btn-line" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <h2 class="reveal">O que a gente <em>resolve</em></h2>
+      <p class="sub reveal">Do computador lento ao joystick que parou de funcionar.</p>
+      <div class="grid">
+        <article class="card reveal"><div class="ico">🪟</div><h3>Windows e Office</h3><p>Instalação e configuração do sistema e dos programas de escritório.</p></article>
+        <article class="card reveal"><div class="ico">💾</div><h3>Formatação e backup</h3><p>Formatação, backup dos seus arquivos e instalação dos programas que você usa.</p></article>
+        <article class="card reveal"><div class="ico">🔁</div><h3>Clonagem de HD</h3><p>Troque de disco sem perder nada: copiamos tudo para o novo HD ou SSD.</p></article>
+        <article class="card reveal"><div class="ico">🖥️</div><h3>Montagem de computadores</h3><p>Montagem sob medida para trabalho, estudo ou jogos.</p></article>
+        <article class="card reveal"><div class="ico">🎮</div><h3>Joystick, fone e console</h3><p>Conserto de controles, fones de ouvido, consoles e outros objetos eletrônicos.</p></article>
+        <article class="card reveal"><div class="ico">🛠️</div><h3>Manutenção geral</h3><p>Diagnóstico e reparo de computadores e equipamentos eletrônicos em geral.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two">
+      <div class="reveal">
+        <h2>Sem sair <em>de casa</em></h2>
+        <p class="sub">Escolha a opção que for mais prática para você.</p>
+      </div>
+      <ul class="checks reveal">
+        <li><i>✓</i><span><b>Buscamos e entregamos</b> o seu aparelho na sua casa.</span></li>
+        <li><i>✓</i><span><b>Atendimento remoto</b>, onde você estiver.</span></li>
+        <li><i>✓</i><span><b>Orçamento sem compromisso</b> pelo WhatsApp.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="promo">
+    <div class="wrap">
+      <div class="promo reveal">
+        <small>Promoção da semana</small>
+        <div class="price"><span>R$</span>89,90</div>
+        <h3 style="font-size:26px;margin-bottom:6px">Formatação</h3>
+        <p>Agende seu horário e deixe o computador como novo.</p>
+        <a class="btn btn-green" data-wa="Olá! Quero aproveitar a promoção de formatação por R$ 89,90.">Quero a promoção</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="reveal">Como <em>funciona</em></h2>
+      <div class="steps">
+        <div class="step reveal"><h3>Fale com a gente</h3><p>Chame no WhatsApp e conte o que está acontecendo.</p></div>
+        <div class="step reveal"><h3>Receba o orçamento</h3><p>Avaliamos o problema e passamos o valor, sem compromisso.</p></div>
+        <div class="step reveal"><h3>Aparelho resolvido</h3><p>Fazemos o serviço e entregamos funcionando, na sua casa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="wrap two">
+      <div class="reveal">
+        <h2>Peça seu <em>orçamento</em></h2>
+        <p class="sub">Preencha ao lado e a conversa abre direto no nosso WhatsApp.</p>
+        <div class="info">
+          <span><b>WhatsApp:</b> (63) 99114-6877</span>
+        </div>
+      </div>
+      <form class="form reveal" id="form">
+        <label>Seu nome<input id="nome" required placeholder="Como podemos te chamar?"></label>
+        <label>O que você precisa?
+          <select id="servico">
+            <option>Formatação (promoção R$ 89,90)</option>
+            <option>Windows ou Office</option>
+            <option>Backup ou clonagem de HD</option>
+            <option>Montagem de computador</option>
+            <option>Conserto de joystick, fone ou console</option>
+            <option>Manutenção geral ou eletrônica</option>
+            <option>Outro</option>
+          </select>
+        </label>
+        <label>Como prefere o atendimento?
+          <select id="modo"><option>Buscar na minha casa</option><option>Atendimento remoto</option><option>Levar até vocês</option></select>
+        </label>
+        <label>Conte o problema (opcional)<textarea id="msg" placeholder="Ex.: o computador está lento e trava"></textarea></label>
+        <button class="btn btn-green" type="submit"><svg width="22" height="22"><use href="#wa"/></svg>Enviar pelo WhatsApp</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="ano"></span> INFO BOX · Manutenção de computadores e eletrônicos</div></footer>
+
+<a class="fab" data-wa="Olá! Vim pelo site da INFO BOX." aria-label="Falar no WhatsApp"><svg width="34" height="34" style="color:#fff"><use href="#wa"/></svg></a>
+
+<script>
+const FONE = "5563991146877";
+const wa = t => "https://wa.me/" + FONE + "?text=" + encodeURIComponent(t);
+
+// botões com mensagem pronta
+document.querySelectorAll("[data-wa]").forEach(el => {
+  el.href = wa(el.dataset.wa);
+  el.target = "_blank";
+  el.rel = "noopener";
+});
+
+// formulário -> WhatsApp
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  let t = `Olá! Meu nome é ${v("nome")}.\nServiço: ${v("servico")}\nAtendimento: ${v("modo")}`;
+  if (v("msg")) t += `\nProblema: ${v("msg")}`;
+  window.open(wa(t), "_blank", "noopener");
+});
+
+// animação ao rolar
+const io = new IntersectionObserver(es => es.forEach(x => {
+  if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); }
+}), { threshold: .15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
