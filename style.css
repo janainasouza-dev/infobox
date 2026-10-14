@@ -44,6 +44,7 @@ h1 em{font-style:normal;color:var(--green);text-shadow:0 0 36px #2bf08a88}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;transition:border-color .25s,transform .25s}
 .card:hover{border-color:var(--green);transform:translateY(-4px)}
 .ico{width:54px;height:54px;border-radius:16px;background:#2bf08a1a;display:grid;place-items:center;font-size:26px;margin-bottom:16px}
+.ico svg{width:28px;height:28px;fill:none;stroke:var(--green);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .card h3{font-size:19px;font-weight:600;margin-bottom:6px}
 .card p{color:var(--muted);font-size:15px}
 
